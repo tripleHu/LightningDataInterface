@@ -5,11 +5,13 @@
 	xmlns:context="http://www.springframework.org/schema/context"
 	xmlns:tx="http://www.springframework.org/schema/tx"
 	xmlns:mvc="http://www.springframework.org/schema/mvc"
-	xsi:schemaLocation="http://www.springframework.org/schema/mvc 
-	http://www.springframework.org/schema/mvc/spring-mvc.xsd
-		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
-		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/tx
-	http://www.springframework.org/schema/tx/spring-tx.xsd">
+	xmlns:task="http://www.springframework.org/schema/task"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
+	http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd 
+	http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
+	http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task.xsd
+	">
 
 	<!-- DispatcherServlet Context: defines this servlet's request-processing infrastructure -->
 	
@@ -21,30 +23,30 @@
 
 	<!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory -->
 	<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-		<beans:property name="prefix" value="/WEB-INF/LightningDensity/" />
+		<beans:property name="prefix" value="/WEB-INF/views/" />
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
 	
 	
-	<context:component-scan base-package="cn.edu.cqu.LightningDensity" />
+	<context:component-scan base-package="cn.cqu.edu.LightningDataInterface" />
 	<beans:bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
 		destroy-method="close">
-		<beans:property name="driverClassName" value="com.mysql.jdbc.Driver" />
+		<beans:property name="driverClassName" value="net.sourceforge.jtds.jdbc.Driver" />
 <!-- 		<beans:property name="url" value="jdbc:mysql://172.20.62.134:3306/fljsjg?useUnicode=true&amp;characterEncoding=UTF-8" /> -->
 <!--    	<beans:property name="url" value="jdbc:mysql://202.202.66.169:3306/fljsjg?useUnicode=true&amp;characterEncoding=UTF-8" /> -->	
-		<beans:property name="url" value="jdbc:mysql://172.20.62.132:3306/fljsjg?useUnicode=true&amp;characterEncoding=UTF-8"></beans:property>
-		<beans:property name="username" value="root" />
-		<beans:property name="password" value="123456" />
+		<beans:property name="url" value="jdbc:jtds:sqlserver://172.20.62.110:1433/ldzh" ></beans:property>
+		<beans:property name="username" value="sa" />
+		<beans:property name="password" value="Cqu@2302" />
 	</beans:bean> 
 	<!--	设置sessionFactory-->
 	<beans:bean id="sessionFactory"
 		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
 		<beans:property name="dataSource" ref="dataSource" />
-		<beans:property name="packagesToScan" value="cn.edu.cqu.LightningDensity.domains" />
+		<beans:property name="packagesToScan" value="cn.cqu.edu.LightningDataInterface.domain" />
 		<beans:property name="hibernateProperties">
 			<beans:props>
                 <beans:prop key="hibernate.hbm2ddl.auto">update</beans:prop>
-                <beans:prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</beans:prop>
+                <beans:prop key="hibernate.dialect">org.hibernate.dialect.SQLServerDialect</beans:prop>
                 <beans:prop key="hibernate.show_sql">false</beans:prop>
             </beans:props>
 		</beans:property>
@@ -60,6 +62,19 @@
 	
 	<tx:annotation-driven transaction-manager="transactionManager" />
 
+<!--	设置编码格式-->	
+	<mvc:annotation-driven>
+    <mvc:message-converters register-defaults="true">
+   <beans:bean class="org.springframework.http.converter.StringHttpMessageConverter">
+     <beans:property name="supportedMediaTypes" value = "text/plain;charset=UTF-8" />
+   </beans:bean>
+  </mvc:message-converters>
+    </mvc:annotation-driven>
+    
+   <!-- 开启这个配置，spring才能识别@Scheduled注解   -->  
+    <task:annotation-driven scheduler="qbScheduler" mode="proxy"/>  
+    <task:scheduler id="qbScheduler" pool-size="10"/>
+    
 <!-- 	设置权限控制拦截器
 	<mvc:interceptors>
 		<mvc:interceptor>

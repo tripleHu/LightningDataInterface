@@ -11,7 +11,7 @@
 	</appender>
 	
 	<!-- Application Loggers -->
-	<logger name="cn.edu.cqu.LightningDensity">
+	<logger name="cn.edu.cqu.LightningDataInterface">
 		<level value="warn" />
 	</logger>
 	

@@ -1,0 +1,372 @@
+
+    [
+        {
+            "name": "城口",
+			"fullname": "城口县",
+            "fId": 0,
+            "latitudeLower": 31.6236938553808,
+            "longitudeLeft": 108.254766380135,
+            "latitudeUpper": 32.2032606049147,
+            "longitudeRight": 109.277793353767
+        },
+		{
+            "name": "巫溪",
+			"fullname": "巫溪县",
+            "fId": 1,
+            "latitudeLower": 31.2432594299316,
+            "longitudeLeft": 108.698806762695,
+            "latitudeUpper": 31.7272090911865,
+            "longitudeRight": 109.971282958984
+        },
+		 {
+            "name": "巫山",
+			"fullname": "巫山县",
+            "fId": 2,
+            "latitudeLower": 30.767650604248,
+            "longitudeLeft": 109.566589355469,
+            "latitudeUpper": 31.4685497283936,
+            "longitudeRight": 110.188217163086
+        },
+		 {
+            "name": "开州",
+			"fullname": "开州区",
+            "fId": 3,
+            "latitudeLower": 30.8302307128906,
+            "longitudeLeft": 107.935333251953,
+            "latitudeUpper": 31.6896705627441,
+            "longitudeRight": 108.890716552734
+        },
+		 {
+            "name": "云阳",
+			"fullname": "云阳县",
+            "fId": 4,
+            "latitudeLower": 30.588249206543,
+            "longitudeLeft": 108.41512298584,
+            "latitudeUpper": 31.4310092926025,
+            "longitudeRight": 109.241172790527
+        },
+		 {
+            "name": "奉节",
+			"fullname": "奉节县",
+            "fId": 5,
+            "latitudeLower": 30.4923095703125,
+            "longitudeLeft": 109.020057678223,
+            "latitudeUpper": 31.3600807189941,
+            "longitudeRight": 109.758506774902
+        },
+		 {
+            "name": "万州",
+			"fullname": "万州区",
+            "fId": 6,
+            "latitudeLower": 30.4088592529297,
+            "longitudeLeft": 107.88111114502,
+            "latitudeUpper": 30.9971103668213,
+            "longitudeRight": 108.890731811523
+        },
+		 {
+            "name": "梁平",
+			"fullname": "梁平区",
+            "fId": 7,
+            "latitudeLower": 30.4297199249268,
+            "longitudeLeft": 107.405487060547,
+            "latitudeUpper": 30.8886394500732,
+            "longitudeRight": 108.077178955078
+        },
+		 {
+            "name": "忠县",
+			"fullname": "忠县",
+            "fId": 8,
+            "latitudeLower": 30.0584106445313,
+            "longitudeLeft": 107.547340393066,
+            "latitudeUpper": 30.588249206543,
+            "longitudeRight": 108.22737121582
+        },
+		 {
+            "name": "石柱",
+			"fullname": "石柱土家族自治县",
+            "fId": 9,
+            "latitudeLower": 29.6558094024658,
+            "longitudeLeft": 107.989570617676,
+            "latitudeUpper": 30.5465297698975,
+            "longitudeRight": 108.569480895996
+        },
+		 {
+            "name": "垫江",
+			"fullname": "垫江县",
+            "fId": 10,
+            "latitudeLower": 29.9812297821045,
+            "longitudeLeft": 107.249038696289,
+            "latitudeUpper": 30.5173301696777,
+            "longitudeRight": 107.666236877441
+        },
+		 {
+            "name": "丰都",
+			"fullname": "丰都县",
+            "fId": 11,
+            "latitudeLower": 29.5556793212891,
+            "longitudeLeft": 107.449287414551,
+            "latitudeUpper": 30.2628402709961,
+            "longitudeRight": 108.204429626465
+        },
+		 {
+            "name": "彭水",
+			"fullname": "彭水苗族土家族自治县",
+            "fId": 12,
+            "latitudeLower": 28.9653396606445,
+            "longitudeLeft": 107.81226348877,
+            "latitudeUpper": 29.8352108001709,
+            "longitudeRight": 108.578819274902
+        },
+		 {
+            "name": "黔江",
+			"fullname": "黔江区",
+            "fId": 13,
+            "latitudeLower": 29.0779800415039,
+            "longitudeLeft": 108.473518371582,
+            "latitudeUpper": 29.8665103912354,
+            "longitudeRight": 108.945007324219
+        },
+		 {
+            "name": "酉阳",
+			"fullname": "酉阳土家族苗族自治县",
+            "fId": 14,
+            "latitudeLower": 28.3311901092529,
+            "longitudeLeft": 108.310821533203,
+            "latitudeUpper": 29.4013195037842,
+            "longitudeRight": 109.313140869141
+        },
+		 {
+            "name": "秀山",
+			"fullname": "秀山土家族苗族自治县",
+            "fId": 15,
+            "latitudeLower": 28.166410446167,
+            "longitudeLeft": 108.720718383789,
+            "latitudeUpper": 28.8840103149414,
+            "longitudeRight": 109.313140869141
+        },
+		 {
+            "name": "大渡口",
+			"fullname": "大渡口区",
+            "fId": 16,
+            "latitudeLower": 29.3444690704346,
+            "longitudeLeft": 106.385948181152,
+            "latitudeUpper": 29.4967498779297,
+            "longitudeRight": 106.52571105957
+        },
+		 {
+            "name": "武隆",
+			"fullname": "武隆区",
+            "fId": 17,
+            "latitudeLower": 29.0425205230713,
+            "longitudeLeft": 107.225051879883,
+            "latitudeUpper": 29.6682300567627,
+            "longitudeRight": 108.078231811523
+        },
+		 {
+            "name": "涪陵",
+			"fullname": "涪陵区",
+            "fId": 18,
+            "latitudeLower": 29.3700294494629,
+            "longitudeLeft": 106.945518493652,
+            "latitudeUpper": 30.0020904541016,
+            "longitudeRight": 107.729858398438
+        },
+		 {
+            "name": "长寿",
+			"fullname": "长寿区",
+            "fId": 19,
+            "latitudeLower": 29.7132205963135,
+            "longitudeLeft": 106.856872558594,
+            "latitudeUpper": 30.2461490631104,
+            "longitudeRight": 107.451377868652
+        },
+		 {
+            "name": "南川",
+			"fullname": "南川区",
+            "fId": 20,
+            "latitudeLower": 28.7692604064941,
+            "longitudeLeft": 106.890243530273,
+            "latitudeUpper": 29.4972705841064,
+            "longitudeRight": 107.434692382813
+        },
+		 {
+            "name": "万盛",
+			"fullname": "万盛经济技术开发区",
+            "fId": 21,
+            "latitudeLower": 28.7713394165039,
+            "longitudeLeft": 106.756736755371,
+            "latitudeUpper": 29.1113605499268,
+            "longitudeRight": 107.052947998047
+        },
+		 {
+            "name": "綦江",
+			"fullname": "綦江区",
+            "fId": 22,
+            "latitudeLower": 28.4563503265381,
+            "longitudeLeft": 106.38126373291,
+            "latitudeUpper": 29.1864604949951,
+            "longitudeRight": 106.915283203125
+        },
+		 {
+            "name": "江津",
+			"fullname": "江津区",
+            "fId": 23,
+            "latitudeLower": 28.5314502716064,
+            "longitudeLeft": 105.825859069824,
+            "latitudeUpper": 29.4529399871826,
+            "longitudeRight": 106.600288391113
+        },
+		 {
+            "name": "璧山",
+			"fullname": "璧山区",
+            "fId": 24,
+            "latitudeLower": 29.2891902923584,
+            "longitudeLeft": 106.043327331543,
+            "latitudeUpper": 29.8837108612061,
+            "longitudeRight": 106.358306884766
+        },
+		 {
+            "name": "北碚",
+			"fullname": "北碚区",
+            "fId": 25,
+            "latitudeLower": 29.6657199859619,
+            "longitudeLeft": 106.306159973145,
+            "latitudeUpper": 30.081880569458,
+            "longitudeRight": 106.680610656738
+        },
+		 {
+            "name": "渝北",
+			"fullname": "渝北区",
+            "fId": 26,
+            "latitudeLower": 29.5770606994629,
+            "longitudeLeft": 106.448013305664,
+            "latitudeUpper": 30.1246395111084,
+            "longitudeRight": 106.965339660645
+        },
+		{
+            "name": "巴南",
+			"fullname": "巴南区",
+            "fId": 27,
+            "latitudeLower": 29.132740020752,
+            "longitudeLeft": 106.435493469238,
+            "latitudeUpper": 29.77001953125,
+            "longitudeRight": 106.963249206543
+        },
+		{
+            "name": "南岸",
+			"fullname": "南岸区",
+            "fId": 28,
+            "latitudeLower": 29.4665107727051,
+            "longitudeLeft": 106.530410766602,
+            "latitudeUpper": 29.6177406311035,
+            "longitudeRight": 106.794288635254
+        },
+		{
+            "name": "江北",
+			"fullname": "江北区",
+            "fId": 29,
+            "latitudeLower": 29.556209564209,
+            "longitudeLeft": 106.448013305664,
+            "latitudeUpper": 29.6844806671143,
+            "longitudeRight": 106.888160705566
+        },
+		{
+            "name": "合川",
+			"fullname": "合川区",
+            "fId": 30,
+            "latitudeLower": 29.8492908477783,
+            "longitudeLeft": 105.976051330566,
+            "latitudeUpper": 30.3770503997803,
+            "longitudeRight": 106.672782897949
+        },
+		{
+            "name": "沙坪坝",
+			"fullname": "沙坪坝区",
+            "fId": 31,
+            "latitudeLower": 29.4946594238281,
+            "longitudeLeft": 106.249320983887,
+            "latitudeUpper": 29.7512397766113,
+            "longitudeRight": 106.483993530273
+        },
+		{
+            "name": "九龙坡",
+			"fullname": "九龙坡区",
+            "fId": 32,
+            "latitudeLower": 29.2589492797852,
+            "longitudeLeft": 106.25244140625,
+            "latitudeUpper": 29.5882892608643,
+            "longitudeRight": 106.544486999512
+        },
+		{
+            "name": "荣昌",
+			"fullname": "荣昌区",
+            "fId": 33,
+            "latitudeLower": 29.2547798156738,
+            "longitudeLeft": 105.286628723145,
+            "latitudeUpper": 29.6897106170654,
+            "longitudeRight": 105.734077453613
+        },
+		{
+            "name": "永川",
+			"fullname": "永川区",
+            "fId": 34,
+            "latitudeLower": 28.9429206848145,
+            "longitudeLeft": 105.630821228027,
+            "latitudeUpper": 29.5624599456787,
+            "longitudeRight": 106.083480834961
+        },
+		{
+            "name": "大足",
+			"fullname": "大足区",
+            "fId": 35,
+            "latitudeLower": 29.374719619751,
+            "longitudeLeft": 105.469146728516,
+            "latitudeUpper": 29.8618106842041,
+            "longitudeRight": 106.030288696289
+        },
+		{
+            "name": "铜梁",
+			"fullname": "铜梁区",
+            "fId": 36,
+            "latitudeLower": 29.5259494781494,
+            "longitudeLeft": 105.778923034668,
+            "latitudeUpper": 30.0954303741455,
+            "longitudeRight": 106.278518676758
+        },
+		{
+            "name": "潼南",
+			"fullname": "潼南区",
+            "fId": 37,
+            "latitudeLower": 29.7908802032471,
+            "longitudeLeft": 105.532783508301,
+            "latitudeUpper": 30.4385795593262,
+            "longitudeRight": 106.008377075195
+        },
+		{
+            "name": "渝中",
+			"fullname": "渝中区",
+            "fId": 38,
+            "latitudeLower": 29.5259494781494,
+            "longitudeLeft": 106.470443725586,
+            "latitudeUpper": 29.5739307403564,
+            "longitudeRight": 106.587249755859
+        },
+		{
+            "name": "双桥",
+			"fullname": "双桥区",
+            "fId": 39,
+            "latitudeLower": 29.4585965745637,
+            "longitudeLeft": 105.734039149311,
+            "latitudeUpper": 29.5366638750228,
+            "longitudeRight": 105.827885466919
+        },
+		{
+            "name": "重庆市",
+			"fullname": "重庆市",
+            "fId": 40,
+            "latitudeLower": 28.16406486461611,
+            "longitudeLeft": 105.28663032899897,
+            "latitudeUpper": 32.203524185636255,
+            "longitudeRight": 110.19527147150868
+        }
+    ]

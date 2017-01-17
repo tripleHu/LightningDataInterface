@@ -17,6 +17,8 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import cn.cqu.edu.LightningDataInterface.Tools.MapPoint;
 import cn.cqu.edu.LightningDataInterface.Tools.MapTools;
+import cn.cqu.edu.LightningDataInterface.domain.ADTD;
+import cn.cqu.edu.LightningDataInterface.services.hibernate.ADTDService;
 import cn.cqu.edu.LightningDataInterface.services.hibernate.ADTDServiseForFljsjg2;
 
 @RunWith(SpringJUnit4ClassRunner.class)  
@@ -24,6 +26,7 @@ import cn.cqu.edu.LightningDataInterface.services.hibernate.ADTDServiseForFljsjg
 public class MapToolTest {
 	@Autowired
 	private ADTDServiseForFljsjg2 adtdServiseForFljsjg2;
+	private ADTDService adtdService;
 	
 	@Test
 	public void testMapTool() throws NumberFormatException, IOException
@@ -34,7 +37,7 @@ public class MapToolTest {
 		 
 		 
 		 
-		 System.out.println(MapTools.getAreaPointsArray(40).length);
+		 //System.out.println(MapTools.getAreaPointsArray(40).length);
 		 /*for(int j=0; j<MapTools.getAreaPointsArray(40).length; j++)
 		 {
 			 System.out.println(MapTools.getAreaPointsArray(40)[j]);
@@ -42,10 +45,13 @@ public class MapToolTest {
 		 
 		
 		 
-		boolean a=MapTools.isInPolygon(point,MapTools.getAreaPointsArray(40));
-		System.out.println(a);
+		//boolean a=MapTools.isInPolygon(point,MapTools.getAreaPointsArray(40));
+		//System.out.println(a);
+		//ADTD LastestData=adtdService.GetLastestData();
+		//System.out.println(LastestData.getDate()+" , "+LastestData.getHour()+" , "+LastestData.getMinute()+" , "+LastestData.getSecond());
+	
 	}
-	/*@Test
+	@Test
 	public void GetLightningActiveByDate() throws NumberFormatException, IOException, ParseException, SQLException
 	{
 		 String dateString = "2014-08-01 ";  
@@ -55,6 +61,8 @@ public class MapToolTest {
 		 String dateString1 = "2014-08-10 ";  
 		 SimpleDateFormat sdf1 = new SimpleDateFormat("yyyy-MM-dd ");  
 		 Date date1 = sdf1.parse(dateString1);  
-		 adtdServiseForFljsjg2.GetLightningActiveByDate(0, date, date1);
-	}*/
+		String a =adtdServiseForFljsjg2.GetLightingCricleStatisticByDate(30.5, 107.2, 50, date);
+		System.out.println(a);
+		// adtdServiseForFljsjg2.GetLightningActiveByDate(0, date, date1);
+	}
 }

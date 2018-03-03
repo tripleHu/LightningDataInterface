@@ -14,11 +14,11 @@
 
 #### 返回值说明
 
-![][readmeImg/density.png]
+![][//readmeImg/density.png]
 
 #### 效果展示
-![][readmeImg/density_show.png]
-![][readmeImg/density_show2.png]
+![][/readmeImg/density_show.png]
+![][/readmeImg/density_show2.png]
 ### 2 雷电活动
 对应Controller “service/adtd /LightningActiveByTime”
 #### 参数
@@ -36,7 +36,7 @@
 | intensity | 幅值（强度） |
 | datetime | 雷电时间 |
 #### 效果展示
-![][readmeImg/active.png]
+![][//readmeImg/active.png]
 ### 3 按区域统计分析
 对应Controller “service/adtd / AreaStatistic”
 #### 参数
@@ -46,14 +46,14 @@
 | Date | 查询的日期类型 | YYYY<br>YYYY-MM<br>YYYY-MM-dd | 是 | 无 |
 #### 返回值说明
 xxxx型返回值
-![][readmeImg/xxxx.png]
+![][/readmeImg/xxxx.png]
 xxxx-xx型返回值
-![][readmeImg/xxxx-xx.png]
+![][/readmeImg/xxxx-xx.png]
 xxxx-xx-xx型返回值
-![][readmeImg/xxxx-xx-xx.png]
+![][/readmeImg/xxxx-xx-xx.png]
 #### 效果展示
-![][readmeImg/xxxx-xxShow.png]
-![][readmeImg/xxxx-xxShow2.png]
+![][/readmeImg/xxxx-xxShow.png]
+![][/readmeImg/xxxx-xxShow2.png]
 ### 4 按范围统计分析
 对应Controller “service/adtd / CricleStatistic”和“service/adtd /RectangleStatistic”
 #### 参数
@@ -96,18 +96,24 @@ xxxx-xx-xx代表查询一天统计数据
 
 #### 返回值说明
 CricleStatistic xxxx型返回值
-![][readmeImg/CricleStatistic-xxxx.png]
+
+![][/readmeImg/CricleStatistic-xxxx.png]
 CricleStatistic xxxx-xx型返回值
-![][readmeImg/CricleStatistic-xxxx-xx.png]
+
+![][/readmeImg/CricleStatistic-xxxx-xx.png]
 CricleStatistic xxxx-xx-xx型返回值（其中的时间段为1小时）
-![][readmeImg/CricleStatistic-xxxx-xx-xx.png]
+
+![][/readmeImg/CricleStatistic-xxxx-xx-xx.png]
 RectangleStatistic xxxx型返回值
-![][readmeImg/RectangleStatisticxxxx.png]
+
+![][/readmeImg/RectangleStatisticxxxx.png]
 RectangleStatistic xxxx-xx型返回值
-![][readmeImg/RectangleStatisticxxxx-xx.png]
+
+![][/readmeImg/RectangleStatisticxxxx-xx.png]
+
 RectangleStatistic xxxx-xx-xx型返回值（其中的时间段为1小时）
-![][readmeImg/RectangleStatisticxxxx-xx-xx.png]
+![][/readmeImg/RectangleStatisticxxxx-xx-xx.png]
 #### 效果展示
-![][readmeImg/AreaStatistic1.png.png]
-![][readmeImg/AreaStatistic2.png.png]
-![][readmeImg/AreaStatistic3.png.png]
+![][/readmeImg/AreaStatistic1.png.png]
+![][/readmeImg/AreaStatistic2.png.png]
+![][/readmeImg/AreaStatistic3.png.png]

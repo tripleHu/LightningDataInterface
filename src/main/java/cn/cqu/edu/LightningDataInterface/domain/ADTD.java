@@ -13,7 +13,6 @@ import javax.persistence.Table;
 @Table(name = "adtdsReal")
 public class ADTD {
 	@Id
-	@GeneratedValue
 	private long MAPINFO_ID;
 
 

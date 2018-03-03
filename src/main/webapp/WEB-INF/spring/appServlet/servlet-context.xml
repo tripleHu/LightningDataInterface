@@ -34,8 +34,14 @@
 		<beans:property name="driverClassName" value="net.sourceforge.jtds.jdbc.Driver" />
 <!-- 		<beans:property name="url" value="jdbc:mysql://172.20.62.134:3306/fljsjg?useUnicode=true&amp;characterEncoding=UTF-8" /> -->
 <!--    	<beans:property name="url" value="jdbc:mysql://202.202.66.169:3306/fljsjg?useUnicode=true&amp;characterEncoding=UTF-8" /> -->	
-		<beans:property name="url" value="jdbc:jtds:sqlserver://172.20.62.110:1433/ldzh" ></beans:property>
-		<beans:property name="username" value="sa" />
+	
+		<!--<beans:property name="url" value="jdbc:jtds:sqlserver://172.24.186.33:1433/ldzh"  ></beans:property>-->
+		 <beans:property name="url" value="jdbc:jtds:sqlserver://172.20.62.110:1433/ldzh" ></beans:property> 
+
+		 <!-- <beans:property name="username" value="sa" />
+		<beans:property name="password" value="CQSflzx123456" /> -->
+		
+		  <beans:property name="username" value="sa" />
 		<beans:property name="password" value="Cqu@2302" />
 	</beans:bean> 
 	<!--	设置sessionFactory-->

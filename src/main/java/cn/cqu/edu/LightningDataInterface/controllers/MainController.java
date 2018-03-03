@@ -1,7 +1,9 @@
 package cn.cqu.edu.LightningDataInterface.controllers;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.OutputStream;
 import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -11,6 +13,7 @@ import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -24,6 +27,7 @@ import com.google.gson.JsonParser;
 import com.google.gson.reflect.TypeToken;
 
 import cn.cqu.edu.LightningDataInterface.Tools.FileTools;
+import cn.cqu.edu.LightningDataInterface.Tools.HttpConnectUtil;
 import cn.cqu.edu.LightningDataInterface.entity.AreaInfo;
 import cn.cqu.edu.LightningDataInterface.entity.LigthingActiveStatistic_Month_Year;
 import cn.cqu.edu.LightningDataInterface.entity.LigthingCricleActiveStatistic_Month_Year;

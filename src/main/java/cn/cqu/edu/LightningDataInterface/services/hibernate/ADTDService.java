@@ -94,7 +94,7 @@ public class ADTDService extends BaseService {
     	EndDatecalendar.set(Calendar.SECOND, 0);//设置秒
     	EndDatecalendar.set(Calendar.MILLISECOND, 0);//设置毫秒
     	
-		List<ADTD> list = (List<ADTD>) hibernateTemplate.find("from ADTD where date BETWEEN ? and ?  and county!='重庆市外' and county!='重庆外'",StartDatecalendar.getTime(),EndDatecalendar.getTime());
+		List<ADTD> list = (List<ADTD>) hibernateTemplate.find("from ADTD where date BETWEEN ? and ?",StartDatecalendar.getTime(),EndDatecalendar.getTime());
 		return list;
 	}
 	/**
@@ -122,7 +122,7 @@ public class ADTDService extends BaseService {
     	EndDatecalendar.set(Calendar.SECOND, 0);//设置秒
     	EndDatecalendar.set(Calendar.MILLISECOND, 0);//设置毫秒
     	
-    	String hql="from ADTD where date BETWEEN ? and ? and county!='重庆市外' and county!='重庆外'and latitude BETWEEN ? and ? and longitude BETWEEN ? and ?";
+    	String hql="from ADTD where date BETWEEN ? and ?  and latitude BETWEEN ? and ? and longitude BETWEEN ? and ?";
     	Object[] param=new Object[]{StartDatecalendar.getTime(),EndDatecalendar.getTime(),latitudeLower,latitudeUpper,longitudeLeft,longitudeRight};
     	List<ADTD> list = (List<ADTD>) hibernateTemplate.find(hql,param);
     	return list;

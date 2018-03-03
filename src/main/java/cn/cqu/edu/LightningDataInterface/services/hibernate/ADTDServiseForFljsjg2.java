@@ -214,10 +214,13 @@ public class ADTDServiseForFljsjg2 extends BaseService
 			{
             	Calendar Tempcalendar =Calendar.getInstance();//使用Calendar处理时间数据
  				Tempcalendar.setTime(ADTD.get(0).getDate());//设置日期
- 				Tempcalendar.set(Calendar.HOUR_OF_DAY, ADTD.get(0).getHour());//设置小时
- 				Tempcalendar.set(Calendar.MINUTE, ADTD.get(0).getMinute());//设置分钟
- 				Tempcalendar.set(Calendar.SECOND, (int)ADTD.get(0).getSecond());//设置秒
+ 				Tempcalendar.set(Calendar.HOUR_OF_DAY, 23);//设置小时
+ 				Tempcalendar.set(Calendar.MINUTE, 59);//设置分钟
+ 				Tempcalendar.set(Calendar.SECOND, 59);//设置秒
  				LightingStartTime=Tempcalendar.getTime();//初始化雷电初时
+ 				Tempcalendar.set(Calendar.HOUR_OF_DAY, 0);//设置小时
+ 				Tempcalendar.set(Calendar.MINUTE, 0);//设置分钟
+ 				Tempcalendar.set(Calendar.SECOND, 0);//设置秒
  				LightingEndTime=Tempcalendar.getTime();//初始化雷电终时
 			}
 			
@@ -258,21 +261,9 @@ public class ADTDServiseForFljsjg2 extends BaseService
 					//ADTD数据是否在section_index的小时时间段内
 					if((int)(section_index)==ADTD.get(data_index).getHour())
 					{
-						//获取当前ADTD数据的时间
-						Calendar Datecalendar =Calendar.getInstance();//使用Calendar处理时间数据
-				    	Datecalendar.setTime(ADTD.get(data_index).getDate());//设置日期
-				    	Datecalendar.set(Calendar.HOUR_OF_DAY, ADTD.get(data_index).getHour());//设置小时
-				    	Datecalendar.set(Calendar.MINUTE, ADTD.get(data_index).getMinute());//设置分钟
-				    	Datecalendar.set(Calendar.SECOND, (int)ADTD.get(data_index).getSecond());//设置秒
+						
 				    	
-				    	if(LightingStartTime.getTime()>=Datecalendar.getTime().getTime())//计算雷电初时
-				    	{
-				    		LightingStartTime=Datecalendar.getTime();
-				    	}
-				    	if(LightingEndTime.getTime()<=Datecalendar.getTime().getTime())//计算雷电终时
-				    	{
-				    		LightingEndTime=Datecalendar.getTime();
-				    	}
+				    
 				    	//判断ADTD数据是否在该区域内
 						MapPoint PointForCheck=new MapPoint();//初始化经纬度
 						PointForCheck.setLatitude(ADTD.get(data_index).getLatitude());//设置ADTD数据经纬度
@@ -280,6 +271,20 @@ public class ADTDServiseForFljsjg2 extends BaseService
 						//ADTD数据是否在该区域内
 						if(MapTools.isInPolygon(PointForCheck, AreaBoundaryArray))
 						{
+							//获取当前ADTD数据的时间
+							Calendar Datecalendar =Calendar.getInstance();//使用Calendar处理时间数据
+					    	Datecalendar.setTime(ADTD.get(data_index).getDate());//设置日期
+					    	Datecalendar.set(Calendar.HOUR_OF_DAY, ADTD.get(data_index).getHour());//设置小时
+					    	Datecalendar.set(Calendar.MINUTE, ADTD.get(data_index).getMinute());//设置分钟
+					    	Datecalendar.set(Calendar.SECOND, (int)ADTD.get(data_index).getSecond());//设置秒
+							if(LightingStartTime.getTime()>=Datecalendar.getTime().getTime())//计算雷电初时
+					    	{
+					    		LightingStartTime=Datecalendar.getTime();
+					    	}
+					    	if(LightingEndTime.getTime()<=Datecalendar.getTime().getTime())//计算雷电终时
+					    	{
+					    		LightingEndTime=Datecalendar.getTime();
+					    	}
 							//若生成的不是第一行数据（确保json格式的正确）
 							if(!bFirstTimeInThisSection)
 							{
@@ -433,8 +438,8 @@ public class ADTDServiseForFljsjg2 extends BaseService
 			
 			if(foo[0].getAreaLightningCount()>0)//雷电数大于0时才有计算雷电初终时的必要
 			{
-				temp.setLightingEndTime(foo[0].getLightingStartTime());//雷电初时
-				temp.setLightingStartTime(foo[0].getLightingEndTime());//雷电终时
+				temp.setLightingStartTime(foo[0].getLightingStartTime());//雷电初时
+				temp.setLightingEndTime(foo[0].getLightingEndTime());//雷电终时
 				LightingDays++;
 			}
 			
@@ -562,8 +567,9 @@ public class ADTDServiseForFljsjg2 extends BaseService
 			
 			if(MonthStatistic.getAreaLightningCount()>0)//雷电数大于0时才有计算雷电初终时的必要
 			{
-				temp.setLightingEndTime(MonthStatistic.getLightingStartTime());//雷电初时
-				temp.setLightingStartTime(MonthStatistic.getLightingEndTime());//雷电终时
+				
+				temp.setLightingStartTime(MonthStatistic.getLightingStartTime());//雷电初时
+				temp.setLightingEndTime(MonthStatistic.getLightingEndTime());//雷电终时
 			}
 			
 			PeriodInfo.add(temp);//添加到数组中
@@ -721,8 +727,9 @@ public class ADTDServiseForFljsjg2 extends BaseService
 			
 			if(foo[0].getAreaLightningCount()>0)//雷电数大于0时才有计算雷电初终时的必要
 			{
-				temp.setLightingEndTime(foo[0].getLightingStartTime());//雷电初时
-				temp.setLightingStartTime(foo[0].getLightingEndTime());//雷电终时
+				
+				temp.setLightingStartTime(foo[0].getLightingStartTime());//雷电初时
+				temp.setLightingEndTime(foo[0].getLightingEndTime());//雷电终时
 				LightingDays++;
 			}
 			
@@ -842,8 +849,8 @@ public class ADTDServiseForFljsjg2 extends BaseService
 			
 			if(MonthStatistic.getAreaLightningCount()>0)//雷电数大于0时才有计算雷电初终时的必要
 			{
-				temp.setLightingEndTime(MonthStatistic.getLightingStartTime());//雷电初时
-				temp.setLightingStartTime(MonthStatistic.getLightingEndTime());//雷电终时
+				temp.setLightingStartTime(MonthStatistic.getLightingStartTime());//雷电初时
+				temp.setLightingEndTime(MonthStatistic.getLightingEndTime());//雷电终时
 			}
 			
 			PeriodInfo.add(temp);//添加到数组中
@@ -984,8 +991,9 @@ public class ADTDServiseForFljsjg2 extends BaseService
 			
 			if(foo[0].getAreaLightningCount()>0)//雷电数大于0时才有计算雷电初终时的必要
 			{
-				temp.setLightingEndTime(foo[0].getLightingStartTime());//雷电初时
-				temp.setLightingStartTime(foo[0].getLightingEndTime());//雷电终时
+				
+				temp.setLightingStartTime(foo[0].getLightingStartTime());//雷电初时
+				temp.setLightingEndTime(foo[0].getLightingEndTime());//雷电终时
 				LightingDays++;
 			}
 			
@@ -1106,8 +1114,9 @@ public class ADTDServiseForFljsjg2 extends BaseService
 			
 			if(MonthStatistic.getAreaLightningCount()>0)//雷电数大于0时才有计算雷电初终时的必要
 			{
-				temp.setLightingEndTime(MonthStatistic.getLightingStartTime());//雷电初时
-				temp.setLightingStartTime(MonthStatistic.getLightingEndTime());//雷电终时
+				
+				temp.setLightingStartTime(MonthStatistic.getLightingStartTime());//雷电初时
+				temp.setLightingEndTime(MonthStatistic.getLightingEndTime());//雷电终时
 			}
 			
 			PeriodInfo.add(temp);//添加到数组中

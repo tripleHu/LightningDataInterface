@@ -35,7 +35,7 @@ function shengcheng()
 	//type:"POST",
 	  dataType:"json",
 	  cache:true,
-	  url:"http://172.20.62.132:7656/LightningDataInterface/service/adtd/LightningDensity",
+	  url:"service/adtd/LightningDensity",
 	  data:{year:2014,radium:5},
 	  contentType:"application/json",
 	  error: function(XMLHttpRequest, textStatus, errorThrown) {
@@ -62,7 +62,7 @@ function shengcheng1()
 	//type:"POST",
 	  dataType:"json",
 	  cache:true,
-	  url:"http://172.20.62.132:7656/LightningDataInterface/service/adtd/AreaStatistic",
+	  url:"service/adtd/AreaStatistic",
 	  data:{AreaIndex:40,Date:temper1},
 	  contentType:"application/json",
 	  error: function(XMLHttpRequest, textStatus, errorThrown) {
@@ -90,7 +90,7 @@ function shengcheng2()
 	//type:"POST",
 	  dataType:"json",
 	  cache:false,
-	  url:"http://172.20.62.132:7656/LightningDataInterface/service/adtd/LightningActiveByTime",
+	  url:"service/adtd/LightningActiveByTime",
 	  data:{StartTime:dt1.getTime(),EndTime:dt2.getTime()},
 	  contentType:"application/json",
 	  error: function(XMLHttpRequest, textStatus, errorThrown) {
@@ -116,7 +116,7 @@ function shengcheng3()
 	//type:"POST",
 	  dataType:"json",
 	  cache:false,
-	  url:"http://172.20.62.132:7656/LightningDataInterface/service/adtd/CricleStatistic",
+	  url:"service/adtd/CricleStatistic",
 	  data:{CricleLatitude:30.5,CricleLongitude:107.2,Radium:50,Date:temper1},
 	  contentType:"application/json",
 	  error: function(XMLHttpRequest, textStatus, errorThrown) {
@@ -142,7 +142,7 @@ function shengcheng4()
 	//type:"POST",
 	  dataType:"json",
 	  cache:false,
-	  url:"http://172.20.62.132:7656/LightningDataInterface/service/adtd/RectangleStatistic",
+	  url:"service/adtd/RectangleStatistic",
 	  data:{latitudeLower:30.0,latitudeUpper:31.0, longitudeLeft:106.0, longitudeRight:107.0,Date:temper1},
 	  contentType:"application/json",
 	  error: function(XMLHttpRequest, textStatus, errorThrown) {

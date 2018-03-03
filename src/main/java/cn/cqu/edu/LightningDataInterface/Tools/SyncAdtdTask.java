@@ -1,7 +1,10 @@
 package cn.cqu.edu.LightningDataInterface.Tools;
 
+import java.io.IOException;
 import java.rmi.RemoteException;
+import java.sql.SQLException;
 import java.sql.Timestamp;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -13,23 +16,47 @@ import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
 import cn.cqu.edu.LightningDataInterface.domain.ADTD;
+import cn.cqu.edu.LightningDataInterface.entity.LigthingActiveStatistic_Month_Year;
 import cn.cqu.edu.LightningDataInterface.services.hibernate.ADTDService;
+import cn.cqu.edu.LightningDataInterface.services.hibernate.ADTDServiseForFljsjg2;
 import hmsas.HmsasService;
 import hmsas.HmsasServiceLocator;
 import hmsas.HmsasserverPortType;
+import cn.cqu.edu.LightningDataInterface.controllers.MainController;
 
 @Component
 public class SyncAdtdTask {
 	@Autowired
 	private ADTDService adtdService;
+	private ADTDServiseForFljsjg2 adtdServiseForFljsjg2;
+	
+	SimpleDateFormat Yearformat = new SimpleDateFormat("yyyy");
 	boolean busy=false;
+	 String BaseHttpUrl=null;  
 	// 每小时执行一次
     @Scheduled(cron = "0 0 0/1 * * ?")
     public void TaskJob() 
     {
     	if(!busy)
     	{
-    	  //UpdateAdtd();
+    	  //UpdateAdtd(); 
+    	}
+    }
+    //每天晚上1点执行统计分析ADTD数据
+    @Scheduled(cron = "0 0 1 * * ?")
+    public void ADTDTaskJob() throws ParseException, NumberFormatException, IOException, SQLException 
+    {
+    	for(int year=2008;year<=Calendar.getInstance().get(Calendar.YEAR);year++)
+    	{
+    		 Date Year = Yearformat.parse(String.valueOf(year));//转换为Date类型
+    		 for(int AreaIndex=0;AreaIndex<41;AreaIndex++)
+    		 {
+    			 System.out.println("Begin LightningStatistic Area : "+AreaIndex+" ; "+"Year : "+Year);
+    			 String url=GetBaseHttpUrl()+"/AreaStatistic?AreaIndex="+AreaIndex+"&Date="+Year;
+    			 String returnstring=HttpConnectUtil.getURLContent(url);//通过http请求返回字符串
+    			 System.out.println("End LightningStatistic Area : "+AreaIndex+" ; "+"Year : "+Year);
+    		 }
+    		
     	}
     }
     /**
@@ -139,4 +166,13 @@ public class SyncAdtdTask {
     	 		   
     	 		  
     }
+	//获取adtd接口地址
+	private String GetBaseHttpUrl()
+	{
+		if(BaseHttpUrl==null)
+		{
+			BaseHttpUrl=new SystemSetting().get_ADTD_INTERFACE_ADDRESS();
+		}
+		return BaseHttpUrl;
+	}
 }

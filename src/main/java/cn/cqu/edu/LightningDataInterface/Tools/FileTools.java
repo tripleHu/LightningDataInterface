@@ -24,7 +24,17 @@ public  class FileTools {
 		 
 		String rootpath=configPath.replace('/', separator);//使文件路径的斜线跨平台兼容
 		rootpath=rootpath.replace('\\', separator);//使文件路径的斜线跨平台兼容
-		 return rootpath;
+		
+		String os = System.getProperty("os.name");  
+		if(os.toLowerCase().startsWith("win"))//是windows系统路径前不用加斜线
+		{  
+			 return rootpath;
+		}  
+		else //是linux系统路径前加斜线，如/home/java/
+		{
+			 return "/"+rootpath;
+		}
+		
 	}
 	 
 	 public String ReadFileAsString(String FilePath)

@@ -14,7 +14,7 @@
 
 #### 返回值说明
 
-![][//readmeImg/density.png)
+![](/readmeImg/density.png)
 
 #### 效果展示
 ![](/readmeImg/density_show.png)
@@ -45,12 +45,19 @@
 | AreaIndex | 区域索引 | 0-40 | 是 | 无 |
 | Date | 查询的日期类型 | YYYY<br>YYYY-MM<br>YYYY-MM-dd | 是 | 无 |
 #### 返回值说明
+
 xxxx型返回值
+
 ![](/readmeImg/xxxx.png)
+
 xxxx-xx型返回值
+
 ![](/readmeImg/xxxx-xx.png)
+
 xxxx-xx-xx型返回值
+
 ![](/readmeImg/xxxx-xx-xx.png)
+
 #### 效果展示
 ![](/readmeImg/xxxx-xxShow.png)
 ![](/readmeImg/xxxx-xxShow2.png)
@@ -98,22 +105,27 @@ xxxx-xx-xx代表查询一天统计数据
 CricleStatistic xxxx型返回值
 
 ![](/readmeImg/CricleStatistic-xxxx.png)
+
 CricleStatistic xxxx-xx型返回值
 
 ![](/readmeImg/CricleStatistic-xxxx-xx.png)
+
 CricleStatistic xxxx-xx-xx型返回值（其中的时间段为1小时）
 
 ![](/readmeImg/CricleStatistic-xxxx-xx-xx.png)
+
 RectangleStatistic xxxx型返回值
 
 ![](/readmeImg/RectangleStatisticxxxx.png)
+
 RectangleStatistic xxxx-xx型返回值
 
 ![](/readmeImg/RectangleStatisticxxxx-xx.png)
 
 RectangleStatistic xxxx-xx-xx型返回值（其中的时间段为1小时）
+
 ![](/readmeImg/RectangleStatisticxxxx-xx-xx.png)
 #### 效果展示
-![](/readmeImg/AreaStatistic1.png.png)
-![](/readmeImg/AreaStatistic2.png.png)
-![](/readmeImg/AreaStatistic3.png.png)
+![](/readmeImg/AreaStatistic1.png)
+![](/readmeImg/AreaStatistic2.png)
+![](/readmeImg/AreaStatistic3.png)

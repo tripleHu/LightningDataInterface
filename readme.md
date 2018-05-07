@@ -1,6 +1,10 @@
 # LightningDataInterface
 # 雷电数据接口
 
+本项目使用Spring+Hibernate+Dubbo开发
+可使用两种方式调用服务
+1. restful方式（下方内容有详细描述）
+2. rpc方式（调用接口可参看代码）
 
 ## 主要数据接口
 

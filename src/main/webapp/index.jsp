@@ -33,7 +33,7 @@ function shengcheng()
 	$.ajax
     ({
 	//type:"POST",
-	  dataType:"json",
+	  //dataType:"json",
 	  cache:true,
 	  url:"service/adtd/LightningDensity",
 	  data:{year:2014,radium:5},

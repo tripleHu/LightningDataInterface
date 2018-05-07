@@ -1,43 +1,26 @@
-package cn.cqu.edu.LightningDataInterface.controllers;
+package cn.cqu.edu.LightningDataInterface.rpc.implement;
 
-import java.io.File;
-import java.io.FileInputStream;
+
 import java.io.IOException;
-import java.io.OutputStream;
 import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.servlet.ModelAndView;
-
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
-import com.google.gson.reflect.TypeToken;
-
 import cn.cqu.edu.LightningDataInterface.Tools.FileTools;
-import cn.cqu.edu.LightningDataInterface.Tools.HttpConnectUtil;
-import cn.cqu.edu.LightningDataInterface.entity.AreaInfo;
 import cn.cqu.edu.LightningDataInterface.entity.LigthingActiveStatistic_Month_Year;
 import cn.cqu.edu.LightningDataInterface.entity.LigthingCricleActiveStatistic_Month_Year;
 import cn.cqu.edu.LightningDataInterface.entity.LigthingRectangleActiveStatistic_Month_Year;
 import cn.cqu.edu.LightningDataInterface.entity.SimpleLightingInfo;
-import cn.cqu.edu.LightningDataInterface.services.hibernate.ADTDService;
+import cn.cqu.edu.LightningDataInterface.rpc.Interface.MainService;
 import cn.cqu.edu.LightningDataInterface.services.hibernate.ADTDServiseForFljsjg2;
 
-@Controller
-public class MainController {
+public class MainServiceImp implements MainService {
 	@Autowired
 	private ADTDServiseForFljsjg2 adtdServiseForFljsjg2;
 
@@ -46,15 +29,6 @@ public class MainController {
 	SimpleDateFormat Dateformatter = new SimpleDateFormat("yyyy-MM-dd");
 	SimpleDateFormat Monthformat = new SimpleDateFormat("yyyy-MM");
 	SimpleDateFormat Yearformat = new SimpleDateFormat("yyyy");
-
-	@RequestMapping(value = "/")
-	@ResponseBody
-	public ModelAndView login() {
-		ModelAndView mv = new ModelAndView();
-		mv.setViewName("login");
-		System.out.println("aaaaaaa");
-		return mv;
-	}
 
 	/**
 	 * 获取雷电密度数据
@@ -66,8 +40,6 @@ public class MainController {
 	 * @throws IOException
 	 * @throws SQLException
 	 */
-	@RequestMapping(value = "service/adtd/LightningDensity", produces = "text/plain;charset=UTF-8")
-	@ResponseBody
 	public String GetLightningDensityForWholeProvice(int year, int radium)
 			throws NumberFormatException, IOException, SQLException {
 
@@ -96,8 +68,6 @@ public class MainController {
 	 * @throws ParseException
 	 * @throws SQLException
 	 */
-	@RequestMapping(value = "service/adtd/AreaStatistic", produces = "text/plain;charset=UTF-8")
-	@ResponseBody
 	public String GetLightningAreaStatistic(int AreaIndex, String Date)
 			throws NumberFormatException, IOException, ParseException, SQLException {
 
@@ -149,8 +119,6 @@ public class MainController {
 	 * @throws ParseException
 	 * @throws SQLException
 	 */
-	@RequestMapping(value = "service/adtd/CricleStatistic", produces = "text/plain;charset=UTF-8")
-	@ResponseBody
 	public String GetLightingCricleStatisticByDate(double CricleLatitude, double CricleLongitude, float Radium,
 			String Date) throws NumberFormatException, IOException, ParseException, SQLException {
 		int DateType = CheckDateType(Date);
@@ -200,8 +168,6 @@ public class MainController {
 	 * @throws ParseException
 	 * @throws SQLException
 	 */
-	@RequestMapping(value = "service/adtd/RectangleStatistic", produces = "text/plain;charset=UTF-8")
-	@ResponseBody
 	public String GetLightingRectangleStatisticByDate(double latitudeLower, double latitudeUpper, double longitudeLeft,
 			double longitudeRight, String Date)
 			throws NumberFormatException, IOException, ParseException, SQLException {
@@ -247,8 +213,6 @@ public class MainController {
 	 * @param EndTime
 	 * @return
 	 */
-	@RequestMapping(value = "service/adtd/LightningActiveByTime", produces = "text/plain;charset=UTF-8")
-	@ResponseBody
 	public String GetLightningActiveByDatetime(long StartTime, long EndTime) {
 
 		List<SimpleLightingInfo> LightingInfo = adtdServiseForFljsjg2.GetLightningActiveByDatetime(StartTime, EndTime);
@@ -261,36 +225,6 @@ public class MainController {
 			return a;
 		}
 
-	}
-
-	/**
-	 * 获取客户端访问的IP地址
-	 * 
-	 * @param request
-	 * @return
-	 */
-	private String getIpAddr(HttpServletRequest request) {
-		String ip = request.getHeader("x-forwarded-for");
-		if (ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {
-			ip = request.getHeader("Proxy-Client-IP");
-		}
-		if (ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {
-			ip = request.getHeader("WL-Proxy-Client-IP");
-		}
-		if (ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {
-			ip = request.getRemoteAddr();
-		}
-		if (ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {
-			ip = request.getHeader("http_client_ip");
-		}
-		if (ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {
-			ip = request.getHeader("HTTP_X_FORWARDED_FOR");
-		}
-		// 如果是多级代理，那么取第一个ip为客户ip
-		if (ip != null && ip.indexOf(",") != -1) {
-			ip = ip.substring(ip.lastIndexOf(",") + 1, ip.length()).trim();
-		}
-		return ip;
 	}
 
 	/**

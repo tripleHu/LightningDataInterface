@@ -6,11 +6,15 @@
 	xmlns:tx="http://www.springframework.org/schema/tx"
 	xmlns:mvc="http://www.springframework.org/schema/mvc"
 	xmlns:task="http://www.springframework.org/schema/task"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
 	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
 	http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 	http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd 
 	http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
 	http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task.xsd
+	http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
+ 	http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd
 	">
 
 	<!-- DispatcherServlet Context: defines this servlet's request-processing infrastructure -->
@@ -29,6 +33,8 @@
 	
 	
 	<context:component-scan base-package="cn.cqu.edu.LightningDataInterface" />
+	<aop:aspectj-autoproxy expose-proxy="true"/>
+	
 	<beans:bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
 		destroy-method="close">
 		<beans:property name="driverClassName" value="net.sourceforge.jtds.jdbc.Driver" />
@@ -89,4 +95,20 @@
 			</beans:bean>
 		</mvc:interceptor>
 	</mvc:interceptors>  -->
+	
+<!-- provider's application name, used for tracing dependency relationship -->
+    <dubbo:application name="LightningDataInterface-provider"/>
+
+    <!-- use multicast registry center to export service -->
+    <dubbo:registry address="zookeeper://127.0.0.1:2181"/>
+
+    <!-- use dubbo protocol to export service on port 20880 -->
+    <dubbo:protocol name="dubbo" port="20880"/>
+
+    <!-- service implementation, as same as regular local bean -->
+    <beans:bean id="mainService" class="cn.cqu.edu.LightningDataInterface.rpc.implement.MainServiceImp"/>
+
+    <!-- declare the service interface to be exported -->
+    <dubbo:service interface="cn.cqu.edu.LightningDataInterface.rpc.Interface.MainService" ref="mainService"/>
+	
 </beans:beans>

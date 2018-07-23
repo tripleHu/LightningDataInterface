@@ -43,19 +43,6 @@ public class MainController {
 
 	String separator = System.getProperty("file.separator");// 文件路径间隔符，为了windows和linux兼容
 
-	SimpleDateFormat Dateformatter = new SimpleDateFormat("yyyy-MM-dd");
-	SimpleDateFormat Monthformat = new SimpleDateFormat("yyyy-MM");
-	SimpleDateFormat Yearformat = new SimpleDateFormat("yyyy");
-
-	@RequestMapping(value = "/")
-	@ResponseBody
-	public ModelAndView login() {
-		ModelAndView mv = new ModelAndView();
-		mv.setViewName("login");
-		System.out.println("aaaaaaa");
-		return mv;
-	}
-
 	/**
 	 * 获取雷电密度数据
 	 * 
@@ -100,7 +87,9 @@ public class MainController {
 	@ResponseBody
 	public String GetLightningAreaStatistic(int AreaIndex, String Date)
 			throws NumberFormatException, IOException, ParseException, SQLException {
-
+		SimpleDateFormat Dateformatter = new SimpleDateFormat("yyyy-MM-dd");
+		SimpleDateFormat Monthformat = new SimpleDateFormat("yyyy-MM");
+		SimpleDateFormat Yearformat = new SimpleDateFormat("yyyy");
 		int DateType = CheckDateType(Date);
 
 		if (DateType == 0)// 参数错误
@@ -153,8 +142,11 @@ public class MainController {
 	@ResponseBody
 	public String GetLightingCricleStatisticByDate(double CricleLatitude, double CricleLongitude, float Radium,
 			String Date) throws NumberFormatException, IOException, ParseException, SQLException {
+		SimpleDateFormat Dateformatter = new SimpleDateFormat("yyyy-MM-dd");
+		SimpleDateFormat Monthformat = new SimpleDateFormat("yyyy-MM");
+		SimpleDateFormat Yearformat = new SimpleDateFormat("yyyy");
 		int DateType = CheckDateType(Date);
-
+		
 		if (DateType == 0)// 参数错误
 		{
 			String result = "[{\"fail\":\"Parameter is not valid\"}]";
@@ -205,6 +197,9 @@ public class MainController {
 	public String GetLightingRectangleStatisticByDate(double latitudeLower, double latitudeUpper, double longitudeLeft,
 			double longitudeRight, String Date)
 			throws NumberFormatException, IOException, ParseException, SQLException {
+		SimpleDateFormat Dateformatter = new SimpleDateFormat("yyyy-MM-dd");
+		SimpleDateFormat Monthformat = new SimpleDateFormat("yyyy-MM");
+		SimpleDateFormat Yearformat = new SimpleDateFormat("yyyy");
 		int DateType = CheckDateType(Date);
 
 		if (DateType == 0)// 参数错误
